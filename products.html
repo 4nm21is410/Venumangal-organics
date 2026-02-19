@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Venumangal</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="products.css">
+</head> 
+
+<body>
+
+<!-- FIXED LOGO (same as homepage) -->
+<div class="fixed-logo">
+  <a href="index.html">
+    <img src="images/logo.png.jpeg" alt="Venumangal Logo">
+  </a>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Our Products</h1>
+  <p>Pure • Traditional • Chemical-Free</p>
+</header>
+
+<!-- FILTERS AND PRODUCTS -->
+<main class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+      onkeyup="searchProducts()"
+    />
+
+    <h3>Categories</h3>
+    <ul class="categories">
+      <li class="active" onclick="filterProducts('all', this)">All</li>
+      <li onclick="filterProducts('oil', this)">Oils</li>
+      <li onclick="filterProducts('jaggery', this)">Jaggery</li>
+      <li onclick="filterProducts('grains', this)">Grains & Dal</li>
+      <li onclick="filterProducts('flour', this)">Flours</li>
+      <li onclick="filterProducts('special', this)">Special</li>
+    </ul>
+  </aside>
+
+  
+
+  <!-- PRODUCTS -->
+  <section class="product-section">
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Venumangal Organic Farm</p>
+</footer>
+
+<!-- JS -->
+<script src="products.js"></script>
+
+</body>
+</html>
