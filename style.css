@@ -129,16 +129,36 @@ section.visible {
 @media (max-width: 768px) {
 
   /* Navbar */
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;   /* Increased height */
+  background-color: #ffffff;  /* Make it clean white */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);  /* Soft shadow */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-  nav {
-    padding: 15px 0;
-  }
+.nav-left a {
+  font-size: 18px;        /* Bigger text */
+  font-weight: 700;       /* Bold */
+  text-decoration: none;
+  color: #2e7d32;         /* Organic green */
+  margin-right: 30px;
+  transition: 0.3s;
+}
 
+.nav-left a:hover {
+  color: #1b5e20;         /* Darker green on hover */
+  transform: scale(1.1);  /* Slight zoom */
+}
+
+.nav-left a[href="products.html"] {
+  border-bottom: 3px solid #2e7d32;
+  padding-bottom: 5px;
+}
   /* Hero text */
   .hero-content h1 {
     font-size: 2.5rem;
@@ -197,3 +217,4 @@ section.visible {
   }
 
 }
+
