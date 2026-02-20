@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Venumangal</title>
+  <link rel="stylesheet" href="products.css">
+</head> 
+
+<body>
+
+<!-- LOGO -->
+<div class="fixed-logo">
+  <a href="index.html">
+    <img src="images/logo.png.jpeg" alt="Venumangal Logo">
+  </a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="cart-icon" id="cartIcon">
+      🛒 <span id="cartCount">0</span>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <h1>Our Products</h1>
+  <p>Pure • Traditional • Chemical-Free</p>
+</header>
+
+<main class="layout">
+
+  <aside class="sidebar">
+    <input type="text" id="searchInput" placeholder="Search products..." />
+    <h3>Categories</h3>
+    <ul class="categories">
+      <li class="active">All</li>
+      <li>Oils</li>
+      <li>Jaggery</li>
+      <li>Grains & Dal</li>
+      <li>Flours</li>
+      <li>Special </li>
+    </ul>
+  </aside>
+
+  <section class="product-section">
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+</main>
+
+<!-- CART SIDEBAR -->
+<div id="cartSidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <span class="close-cart" id="closeCart">✖</span>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+    <p id="cartTotal">Total: ₹0</p>
+    <button id="clearCartBtn" class="clear-btn">Clear Cart</button>
+    <button id="orderCartBtn">Order Now</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Venumangal Organic Farm</p>
+</footer>
+
+<script src="products.js"></script>
+
+<script>
+/* ===============================
+   CART OPEN + CLOSE FUNCTIONALITY
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cartIcon = document.getElementById("cartIcon");
+  const cartSidebar = document.getElementById("cartSidebar");
+  const closeCart = document.getElementById("closeCart");
+  const clearCartBtn = document.getElementById("clearCartBtn");
+  const orderCartBtn = document.getElementById("orderCartBtn");
+
+  // OPEN CART
+  cartIcon.addEventListener("click", function () {
+    cartSidebar.classList.add("active");
+  });
+
+  // CLOSE CART (X BUTTON)
+  closeCart.addEventListener("click", function () {
+    cartSidebar.classList.remove("active");
+  });
+
+  // CONNECT BUTTONS TO EXISTING JS FUNCTIONS
+  clearCartBtn.addEventListener("click", function () {
+    if (typeof clearCart === "function") {
+      clearCart();
+    }
+  });
+
+  orderCartBtn.addEventListener("click", function () {
+    if (typeof orderCart === "function") {
+      orderCart();
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
