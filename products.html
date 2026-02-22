@@ -57,6 +57,7 @@
   <section class="product-section">
     <div class="product-grid" id="productGrid"></div>
   </section>
+  
 
 </main>
 
@@ -64,15 +65,18 @@
 <div id="cartSidebar" class="cart-sidebar">
   <div class="cart-header">
     <h3>Your Cart</h3>
-    <span class="close-cart" id="closeCart">✖</span>
+    <div class="cart-header-right">
+      <button id="clearCartBtn" class="clear-cart-btn">Clear Cart</button>
+      <span class="close-cart" id="closeCart">✖</span>
+    </div>
   </div>
 
-  <div id="cartItems" class="cart-items"></div>
+  <div id="cartItems" class="cart-items">
+    <!-- Cart items will be here -->
+  </div>
 
   <div class="cart-footer">
-    <p id="cartTotal">Total: ₹0</p>
-    <button id="clearCartBtn" class="clear-btn">Clear Cart</button>
-    <button id="orderCartBtn">Order Now</button>
+    <button id="orderCartBtn" class="order-btn">Order Now</button>
   </div>
 </div>
 

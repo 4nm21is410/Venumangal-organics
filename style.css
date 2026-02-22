@@ -217,61 +217,46 @@ section.visible {
   }
 
 }
-//* ============================= */
-/*   RICH LUXURY CATEGORY BAR   */
+/* ============================= */
+/*      PREMIUM SIDEBAR         */
 /* ============================= */
 
 .categories {
-  width: 260px;
-  padding: 35px 30px;
+  width: 240px;
+  padding: 35px 25px;
   list-style: none;
-  background: linear-gradient(to bottom, #e8f5e9, #f3faf3); /* soft green */
-  border-radius: 28px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
 }
 
-/* CATEGORY ITEM */
 .categories li {
   position: relative;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  padding: 14px 0;
-  color: #2e7d32;
+  padding: 12px 0;
+  color: #555;
   transition: all 0.35s ease;
-  letter-spacing: 0.6px;
 }
 
-/* BLACK underline (hidden initially) */
-.categories li::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 6px;
-  width: 0%;
-  height: 2px;
-  background: #000;
-  transition: width 0.35s ease;
+/* Fixed Logo as Sticker */
+.fixed-logo img {
+  width: 110px; /* adjust size as needed */
+  height: auto;
+  background: none; /* removes any background */
+  border-radius: 16px; /* soft rounded corners */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* gives depth */
+  padding: 6px; /* optional: gives spacing inside sticker */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-/* HOVER */
-.categories li:hover {
-  color: #000;
-}
-
-.categories li:hover::after {
-  width: 70%;
-}
-
-/* ACTIVE CATEGORY */
-.categories li.active {
-  color: #000;
-  font-weight: 600;
-}
-
-.categories li.active::after {
-  width: 85%;
+/* Hover effect – slight lift */
+.fixed-logo img:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }

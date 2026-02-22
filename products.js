@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (cart.length > 0) {
       cartItemsDiv.innerHTML += `<h3>Total: ₹${total}</h3>`;
-      cartItemsDiv.innerHTML += `<button class="clear-btn" onclick="clearCart()">Clear Cart</button>`;
+    
     }
   }
 
@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
       renderProducts(filtered);
     });
   });
+  
 
   /* INITIAL LOAD */
   renderProducts(products);
