@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
+/* GLOBAL */
 body {
   margin: 0;
   padding: 0;
+  font-family: 'DM Sans', sans-serif;
 }
-
 /* HERO SECTION */
 .hero {
   height: 100vh;
@@ -31,7 +32,7 @@ body {
 }
 
 .hero-content h1 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(50px, 8vw, 100px);
   margin-bottom: 15px;
 }
@@ -42,21 +43,26 @@ body {
 }
 
 .cta-btn {
-  padding: 12px 30px;
-  background: #66bb6a;
+  padding: 14px 34px;
+  font-size: 1rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 40px;
+  background: linear-gradient(to right, #2e7d32, #66bb6a);
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .cta-btn:hover {
-  background: #2e7d32;
-  transform: scale(1.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
+h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
 /* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
@@ -329,3 +335,88 @@ img {
   background: #424242;
 }
 
+/* ============================= */
+/*      TYPOGRAPHY SYSTEM       */
+/* ============================= */
+
+/* Base Body */
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2c2c2c;
+}
+
+/* Headings */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Paragraph */
+p {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/* Small Text */
+.small-text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Buttons */
+button, .cta-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+/* ============================= */
+/*        LEARN MORE STYLE       */
+/* ============================= */
+
+.learn-more {
+  position: relative;
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2e7d32; /* Soft Green */
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline */
+.learn-more {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  background: #e8f5e9; /* light green background */
+  color: #2e7d32;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+  background: #2e7d32;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}

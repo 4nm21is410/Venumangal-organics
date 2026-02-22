@@ -51,19 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let cart = [];
 
-  /* =========================
-     CLOSE CART (X BUTTON FIX)
-  ========================= */
-  const closeCartBtn = document.querySelector(".close-cart");
-  const cartSidebar = document.getElementById("cartSidebar");
-
-  if (closeCartBtn && cartSidebar) {
-    closeCartBtn.addEventListener("click", function () {
-      cartSidebar.classList.remove("active");
-    });
-  }
-
-  /* ========================= */
   function renderProducts(list) {
     grid.innerHTML = "";
 
@@ -95,131 +82,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  window.changeQty = function(btn, change) {
-    const span = btn.parentElement.querySelector("span");
-    let value = parseInt(span.textContent);
-    value = Math.max(1, value + change);
-    span.textContent = value;
-  };
-
-  window.addToCart = function(name, price, unit, btn) {
-    const card = btn.closest(".card");
-    const qty = parseInt(card.querySelector(".qty span").textContent);
-
-    const existing = cart.find(item => item.name === name);
-
-    if (existing) {
-      existing.quantity += qty;
-    } else {
-      cart.push({ name, price, unit, quantity: qty });
-    }
-
-    updateCartUI();
-  };
-
-  window.removeItem = function(index) {
-    cart.splice(index, 1);
-    updateCartUI();
-  };
-
-  window.clearCart = function() {
-    cart = [];
-    updateCartUI();
-  };
-
-  function updateCartUI() {
-    const cartItems = document.getElementById("cartItems");
-    const cartCount = document.getElementById("cartCount");
-    const cartTotal = document.getElementById("cartTotal");
-
-    cartItems.innerHTML = "";
-
-    let total = 0;
-    let count = 0;
-
-    cart.forEach((item, index) => {
-      total += item.price * item.quantity;
-      count += item.quantity;
-
-      cartItems.innerHTML += `
-        <div class="cart-item">
-          <p><strong>${item.name}</strong></p>
-          <p>₹${item.price} × ${item.quantity} ${item.unit}</p>
-          <button onclick="removeItem(${index})" class="remove-btn">
-            Remove
-          </button>
-        </div>
-      `;
-    });
-
-    cartCount.innerText = count;
-    cartTotal.innerText = "Total: ₹" + total;
-  }
-
-  window.orderCart = function() {
-    if (cart.length === 0) {
-      alert("Cart is empty!");
-      return;
-    }
-
-    let message = "Hi! I would like to place an order for:\n\n";
-
-    cart.forEach(item => {
-      message += `- ${item.quantity} ${item.unit === 'L' ? 'liters' : item.unit} of ${item.name}\n`;
-    });
-
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/918277553056?text=${encoded}`, "_blank");
-  };
-
-  window.orderNow = function(name, price, unit, btn) {
-    const card = btn.closest(".card");
-    const qty = parseInt(card.querySelector(".qty span").textContent);
-
-    const message = `Hi! I would like to place an order for:
-
-- ${qty} ${unit === 'L' ? 'liters' : unit} of ${name}.`;
-
-    const url = `https://wa.me/918277553056?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
-
   /* =========================
-   CATEGORY FILTER
-========================= */
+     CATEGORY FILTER
+  ========================= */
 
-const categoryItems = document.querySelectorAll(".categories li");
+  const categoryItems = document.querySelectorAll(".categories li");
 
-categoryItems.forEach(item => {
-  item.addEventListener("click", function () {
+  categoryItems.forEach(item => {
+    item.addEventListener("click", function () {
 
-    // remove active from all
-    categoryItems.forEach(li => li.classList.remove("active"));
+      categoryItems.forEach(li => li.classList.remove("active"));
+      this.classList.add("active");
 
-    // add active to clicked
-    this.classList.add("active");
+      const category = this.getAttribute("data-category");
 
-    const selected = this.textContent.trim().toLowerCase();
+      if (category === "all") {
+        renderProducts(products);
+        return;
+      }
 
-    if (selected === "all") {
-      renderProducts(products);
-      return;
-    }
+      const filtered = products.filter(p => p.category === category);
+      renderProducts(filtered);
 
-    let categoryKey = "";
-
-    if (selected === "oils") categoryKey = "oil";
-    if (selected === "jaggery") categoryKey = "jaggery";
-    if (selected === "grains & dal") categoryKey = "grains";
-    if (selected === "flours") categoryKey = "flour";
-    if (selected === "special") categoryKey = "special";
-
-    const filtered = products.filter(p => p.category === categoryKey);
-    renderProducts(filtered);
-
+      
+    });
   });
-});
+  
 
+  /* INITIAL LOAD */
   renderProducts(products);
 
 });

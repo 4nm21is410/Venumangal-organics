@@ -28,7 +28,7 @@ body {
   height: 70px;
   background: #ffffff;
   display: flex;
-  justify-content: center;
+  justify-content: center;   /* keeps nav-left centered */
   align-items: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   z-index: 1000;
@@ -77,6 +77,8 @@ body {
   top: -10px;
   right: -15px;
 }
+
+
 
 /* =============================== */
 /* LOGO */
@@ -324,6 +326,8 @@ footer {
   transform: scale(1.1);
 }
 
+
+
 /* =============================== */
 /* RESPONSIVE */
 /* =============================== */
@@ -412,51 +416,61 @@ footer {
   background: white;
 }
 
-/* ============================= */
-/* CART SIDEBAR */
-/* ============================= */
-
-.cart-sidebar {
-  position: fixed;
-  top: 0;
-  right: -400px;   /* Hidden by default */
-  width: 350px;
-  height: 100vh;
-  background: #ffffff;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.2);
-  padding: 20px;
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
-  overflow-y: auto;
-}
-
-/* When active */
-.cart-sidebar.active {
-  right: 0;   /* Slide in */
-}
-
-/* Cart Header */
-.cart-header {
+.cart-icon {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  background: #f5f5f5;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.close-cart {
+  justify-content: center;
+  font-size: 20px;
+  color: var(--green);
   cursor: pointer;
-  font-size: 18px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Cart Items */
-.cart-item {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+.cart-icon:hover {
+  background: var(--green);
+  color: white;
+  transform: scale(1.1);
 }
 
-.cart-footer {
-  margin-top: 15px;
+/* Cart Count Badge */
+#cartCount {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-.clear-btn {
-  margin-right: 10px;
+/* ============================= */
+/*      BEST SELLER BADGE       */
+/* ============================= */
+
+.categories li {
+  position: relative;
+}
+
+/* Badge Style */
+.badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, #c6a75e, #e6c97a); /* soft gold */
+  color: #1a1a1a;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+  box-shadow: 0 4px 10px rgba(198,167,94,0.4);
 }

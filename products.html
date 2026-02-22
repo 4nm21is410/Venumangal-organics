@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Products | Venumangal</title>
+
   <link rel="stylesheet" href="products.css">
-</head> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
 <body>
 
@@ -25,7 +27,8 @@
 
   <div class="nav-right">
     <div class="cart-icon" id="cartIcon">
-      🛒 <span id="cartCount">0</span>
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span id="cartCount">0</span>
     </div>
   </div>
 </nav>
@@ -37,19 +40,20 @@
 
 <main class="layout">
 
-  <aside class="sidebar">
-    <input type="text" id="searchInput" placeholder="Search products..." />
-    <h3>Categories</h3>
-    <ul class="categories">
-      <li class="active">All</li>
-      <li>Oils</li>
-      <li>Jaggery</li>
-      <li>Grains & Dal</li>
-      <li>Flours</li>
-      <li>Special </li>
-    </ul>
-  </aside>
+  <!-- SIDEBAR -->
+  <ul class="categories">
+  <li class="active" data-category="all">All</li>
+  <li data-category="oil">Oils</li>
+  <li data-category="jaggery" class="jaggery-item">
+  Jaggery
+  <span class="badge">Best Seller</span>
+</li>
+  <li data-category="grains">Grains & Dal</li>
+  <li data-category="flour">Flours</li>
+  <li data-category="special">Special</li>
+</ul>
 
+  <!-- PRODUCTS -->
   <section class="product-section">
     <div class="product-grid" id="productGrid"></div>
   </section>
@@ -76,13 +80,16 @@
   <p>© 2026 Venumangal Organic Farm</p>
 </footer>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/918277553056" target="_blank" class="whatsapp-float">
+  <img src="images/whatsapp-icon.jpg" alt="WhatsApp Chat">
+</a>
+
+<!-- PRODUCT SCRIPT -->
 <script src="products.js"></script>
 
+<!-- CART OPEN/CLOSE SCRIPT -->
 <script>
-/* ===============================
-   CART OPEN + CLOSE FUNCTIONALITY
-================================ */
-
 document.addEventListener("DOMContentLoaded", function () {
 
   const cartIcon = document.getElementById("cartIcon");
@@ -96,18 +103,19 @@ document.addEventListener("DOMContentLoaded", function () {
     cartSidebar.classList.add("active");
   });
 
-  // CLOSE CART (X BUTTON)
+  // CLOSE CART
   closeCart.addEventListener("click", function () {
     cartSidebar.classList.remove("active");
   });
 
-  // CONNECT BUTTONS TO EXISTING JS FUNCTIONS
+  // CLEAR CART
   clearCartBtn.addEventListener("click", function () {
     if (typeof clearCart === "function") {
       clearCart();
     }
   });
 
+  // ORDER CART
   orderCartBtn.addEventListener("click", function () {
     if (typeof orderCart === "function") {
       orderCart();
