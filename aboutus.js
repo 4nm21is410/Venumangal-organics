@@ -28,4 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
     changeSlide(1);
   }, 4000);
 
+  function toggleMenu() {
+  const menu = document.getElementById("navLinks");
+  menu.classList.toggle("show");
+}
+
 });
+
